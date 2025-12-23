@@ -2,3 +2,122 @@ html {
   height: 100%;
   width: 100%;
 }
+
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  margin: 0;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.name-field {
+  grid-column: span 3;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.empty {
+  grid-column: span 1;
+}
+
+.vp-label {
+  grid-column: span 1;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.number-field {
+  grid-column: span 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.net-line {
+  grid-column: span 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.dropdown-1, .dropdown-2 {
+  grid-column: span 2;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.tables-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.stats-table {
+  flex: 1;
+  min-width: 300px;
+  border-collapse: collapse;
+  border: 1px solid #ccc;
+}
+
+.stats-table th,
+.stats-table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+}
+
+.stats-table th {
+  background-color: #f0f0f0;
+  font-weight: bold;
+}
+
+.stats-table input[type="number"] {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+  
+  .name-field,
+  .vp-label,
+  .number-field,
+  .net-line,
+  .dropdown-1,
+  .dropdown-2,
+  .empty {
+    grid-column: span 1;
+  }
+  
+  .empty {
+    display: none;
+  }
+  
+  .tables-container {
+    flex-direction: column;
+  }
+  
+  .stats-table {
+    width: 100%;
+    font-size: 12px;
+  }
+  
+  .stats-table th,
+  .stats-table td {
+    padding: 4px;
+  }
+}
