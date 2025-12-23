@@ -148,6 +148,9 @@ window.addEventListener('DOMContentLoaded', function() {
       option.textContent = race.name;
       raceDropdown.appendChild(option);
     });
+    
+    // Add event listener for race selection
+    raceDropdown.addEventListener('change', fillRaceStats);
   }
   
   // Populate weapon dropdowns
@@ -279,4 +282,63 @@ function fillArmorData(selectElement, rowIndex) {
   inputs[6].value = armor.dex;
   inputs[7].value = armor.notes;
   inputs[8].value = armor.wt;
+}
+
+// Fill race stats when race is selected
+function fillRaceStats() {
+  const raceDropdown = document.querySelector('.dropdown-2');
+  const raceName = raceDropdown.value;
+  if (!raceName) return;
+  
+  // Find the selected race
+  const selectedRace = races.find(race => 
+    race.name.toLowerCase().replace(/\s+/g, '-') === raceName
+  );
+  
+  if (!selectedRace) return;
+  
+  // Get all stat table rows
+  const statsTables = document.querySelectorAll('.stats-table tbody');
+  
+  // Map stats to their corresponding rows
+  const statsMap = [
+    { name: 'Movement', data: selectedRace.mov },
+    { name: 'Combat Skill', data: selectedRace.combat },
+    { name: 'Strength', data: selectedRace.strength },
+    { name: 'Shooting', data: selectedRace.shooting },
+    { name: 'Armor', data: selectedRace.armor },
+    { name: 'Fortune', data: selectedRace.fortune },
+    { name: 'Agility', data: selectedRace.agility },
+    { name: 'Int', data: selectedRace.intelligence },
+    { name: 'Mana', data: selectedRace.mana },
+    { name: 'Courage', data: selectedRace.courage },
+    { name: 'Vitality', data: selectedRace.vitality }
+  ];
+  
+  // Fill in the stats for each row
+  let statIndex = 0;
+  statsTables.forEach(table => {
+    const rows = table.querySelectorAll('tr');
+    rows.forEach(row => {
+      if (statIndex < statsMap.length) {
+        const stat = statsMap[statIndex];
+        const inputs = row.querySelectorAll('input');
+        
+        // Inputs: [0]=Final, [1]=Min, [2]=Max, [3]=Cost, [4]=Mod, [5]=Spend
+        if (typeof stat.data === 'object' && stat.data !== null) {
+          // Stats with min/max/cost structure
+          inputs[1].value = stat.data.min || '';
+          inputs[2].value = stat.data.max || '';
+          inputs[3].value = stat.data.cost || '';
+        } else {
+          // Simple number stats (armor, fortune)
+          inputs[1].value = stat.data || '';
+          inputs[2].value = stat.data || '';
+          inputs[3].value = '';
+        }
+        
+        statIndex++;
+      }
+    });
+  });
 }
