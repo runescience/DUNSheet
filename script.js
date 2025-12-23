@@ -138,7 +138,10 @@ window.addEventListener('DOMContentLoaded', function() {
     });
     
     // Add event listener for class selection
-    classDropdown.addEventListener('change', updateRaceAllowed);
+    classDropdown.addEventListener('change', function() {
+      updateRaceAllowed();
+      fillClassDescription();
+    });
   }
   
   // Populate race dropdown
@@ -294,7 +297,13 @@ function fillArmorData(selectElement, rowIndex) {
 function fillRaceStats() {
   const raceDropdown = document.querySelector('.dropdown-2');
   const raceName = raceDropdown.value;
-  if (!raceName) return;
+  
+  const raceDescriptionTextarea = document.getElementById('race-description');
+  
+  if (!raceName) {
+    if (raceDescriptionTextarea) raceDescriptionTextarea.value = '';
+    return;
+  }
   
   // Find the selected race
   const selectedRace = races.find(race => 
@@ -302,6 +311,11 @@ function fillRaceStats() {
   );
   
   if (!selectedRace) return;
+  
+  // Fill race description
+  if (raceDescriptionTextarea && selectedRace.notes) {
+    raceDescriptionTextarea.value = selectedRace.notes;
+  }
   
   // Get all stat table rows
   const statsTables = document.querySelectorAll('.stats-table tbody');
@@ -347,6 +361,31 @@ function fillRaceStats() {
       }
     });
   });
+}
+
+// Fill class description when class is selected
+function fillClassDescription() {
+  const classDropdown = document.querySelector('.dropdown-1');
+  const className = classDropdown.value;
+  
+  const classDescriptionTextarea = document.getElementById('class-description');
+  
+  if (!className) {
+    if (classDescriptionTextarea) classDescriptionTextarea.value = '';
+    return;
+  }
+  
+  // Find the selected class
+  const selectedClass = classes.find(classItem => 
+    classItem.name.toLowerCase().replace(/\s+/g, '-') === className
+  );
+  
+  if (!selectedClass) return;
+  
+  // Fill class description
+  if (classDescriptionTextarea && selectedClass.description) {
+    classDescriptionTextarea.value = selectedClass.description;
+  }
 }
 
 // Update Race allowed field based on selected class and race
