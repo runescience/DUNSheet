@@ -150,7 +150,16 @@ window.addEventListener('DOMContentLoaded', function() {
     });
     
     // Add event listener for race selection
-    raceDropdown.addEventListener('change', fillRaceStats);
+    raceDropdown.addEventListener('change', function() {
+      fillRaceStats();
+      updateRaceAllowed();
+    });
+  }
+  
+  // Add event listener for class selection
+  const classDropdown = document.querySelector('.dropdown-1');
+  if (classDropdown) {
+    classDropdown.addEventListener('change', updateRaceAllowed);
   }
   
   // Populate weapon dropdowns
@@ -341,4 +350,59 @@ function fillRaceStats() {
       }
     });
   });
+}
+
+// Update Race allowed field based on selected class and race
+function updateRaceAllowed() {
+  if (typeof classRaceLookup === 'undefined') return;
+  
+  const classDropdown = document.querySelector('.dropdown-1');
+  const raceDropdown = document.querySelector('.dropdown-2');
+  
+  const classValue = classDropdown.value;
+  const raceValue = raceDropdown.value;
+  
+  // Find the Race allowed input field
+  const statsTables = document.querySelectorAll('.stats-table tbody');
+  let raceAllowedInput = null;
+  
+  statsTables.forEach(table => {
+    const rows = table.querySelectorAll('tr');
+    rows.forEach(row => {
+      const firstCell = row.querySelector('td');
+      if (firstCell && firstCell.textContent.trim() === 'Race allowed') {
+        raceAllowedInput = row.querySelector('input[readonly]');
+      }
+    });
+  });
+  
+  if (!raceAllowedInput) return;
+  
+  // Clear styling and value if either dropdown is empty
+  if (!classValue || !raceValue) {
+    raceAllowedInput.value = '';
+    raceAllowedInput.style.backgroundColor = '';
+    return;
+  }
+  
+  // Convert dropdown values back to proper names
+  const className = classes.find(c => c.name.toLowerCase().replace(/\s+/g, '-') === classValue)?.name;
+  const raceName = races.find(r => r.name.toLowerCase().replace(/\s+/g, '-') === raceValue)?.name;
+  
+  if (!className || !raceName) return;
+  
+  // Look up compatibility
+  const compatibility = classRaceLookup[className]?.[raceName] || '';
+  
+  // Update input value
+  raceAllowedInput.value = compatibility;
+  
+  // Update background color
+  if (compatibility.toLowerCase() === 'no' || compatibility.toLowerCase().includes('no*')) {
+    raceAllowedInput.style.backgroundColor = '#ff6b6b';
+  } else if (compatibility && compatibility.toLowerCase() !== '') {
+    raceAllowedInput.style.backgroundColor = '#90ee90';
+  } else {
+    raceAllowedInput.style.backgroundColor = '#ff6b6b';
+  }
 }
