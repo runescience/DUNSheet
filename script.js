@@ -23,6 +23,30 @@ const armorData = {
 
 // Populate dropdown options on page load
 window.addEventListener('DOMContentLoaded', function() {
+  // Populate class dropdown
+  const classDropdown = document.querySelector('.dropdown-1');
+  if (classDropdown && typeof classes !== 'undefined') {
+    classDropdown.innerHTML = '<option value="">Select class</option>';
+    classes.forEach(classItem => {
+      const option = document.createElement('option');
+      option.value = classItem.name.toLowerCase().replace(/\s+/g, '-');
+      option.textContent = classItem.name;
+      classDropdown.appendChild(option);
+    });
+  }
+  
+  // Populate race dropdown
+  const raceDropdown = document.querySelector('.dropdown-2');
+  if (raceDropdown && typeof races !== 'undefined') {
+    raceDropdown.innerHTML = '<option value="">Select race</option>';
+    races.forEach(race => {
+      const option = document.createElement('option');
+      option.value = race.name.toLowerCase().replace(/\s+/g, '-');
+      option.textContent = race.name;
+      raceDropdown.appendChild(option);
+    });
+  }
+  
   // Populate weapon dropdowns
   const weaponSelects = document.querySelectorAll('.weapon-select');
   weaponSelects.forEach(select => {
