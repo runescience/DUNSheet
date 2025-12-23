@@ -86,6 +86,25 @@ if (typeof rangedWeapons !== 'undefined') {
   });
 }
 
+// Convert shields to object format for lookup
+const shieldsData = {};
+if (typeof shields !== 'undefined') {
+  shields.forEach(shield => {
+    const key = shield.name.toLowerCase().replace(/\s+/g, '-');
+    shieldsData[key] = {
+      cost: shield.cost,
+      defendOn: shield.defendOn,
+      agil: shield.agil,
+      shoot: shield.shoot,
+      perc: shield.perc,
+      breakOn: shield.breakOn,
+      runningFig: shield.runningFig,
+      notes: shield.notes,
+      wt: shield.wt
+    };
+  });
+}
+
 // Armor data - add your armor here
 const armorData = {
   'leather': { cost: 50, armor: 2, move: 0, agil: 0, shoot: 0, percMod: 0, dex: 0, notes: 'Light armor', wt: 5 },
@@ -144,6 +163,19 @@ window.addEventListener('DOMContentLoaded', function() {
     });
   }
   
+  // Populate shields dropdowns
+  const shieldsSelects = document.querySelectorAll('.shield-select');
+  if (shieldsSelects.length > 0 && typeof shields !== 'undefined') {
+    shieldsSelects.forEach(select => {
+      shields.forEach(shield => {
+        const option = document.createElement('option');
+        option.value = shield.name.toLowerCase().replace(/\s+/g, '-');
+        option.textContent = shield.name;
+        select.appendChild(option);
+      });
+    });
+  }
+  
   // Populate armor dropdowns
   const armorSelects = document.querySelectorAll('.armor-select');
   armorSelects.forEach(select => {
@@ -194,6 +226,26 @@ function fillRangedData(selectElement, rowIndex) {
   inputs[6].value = weapon.breakOn;
   inputs[7].value = weapon.notes;
   inputs[8].value = weapon.wt;
+}
+
+// Fill shield data when selected
+function fillShieldData(selectElement, rowIndex) {
+  const shieldName = selectElement.value;
+  if (!shieldName) return;
+  
+  const shield = shieldsData[shieldName];
+  const row = selectElement.closest('tr');
+  const inputs = row.querySelectorAll('input');
+  
+  inputs[0].value = shield.cost;
+  inputs[1].value = shield.defendOn;
+  inputs[2].value = shield.agil;
+  inputs[3].value = shield.shoot;
+  inputs[4].value = shield.perc;
+  inputs[5].value = shield.breakOn;
+  inputs[6].value = shield.runningFig;
+  inputs[7].value = shield.notes;
+  inputs[8].value = shield.wt;
 }
 
 // Fill armor data when selected
