@@ -136,6 +136,9 @@ window.addEventListener('DOMContentLoaded', function() {
       option.textContent = classItem.name;
       classDropdown.appendChild(option);
     });
+    
+    // Add event listener for class selection
+    classDropdown.addEventListener('change', updateRaceAllowed);
   }
   
   // Populate race dropdown
@@ -154,12 +157,6 @@ window.addEventListener('DOMContentLoaded', function() {
       fillRaceStats();
       updateRaceAllowed();
     });
-  }
-  
-  // Add event listener for class selection
-  const classDropdown = document.querySelector('.dropdown-1');
-  if (classDropdown) {
-    classDropdown.addEventListener('change', updateRaceAllowed);
   }
   
   // Populate weapon dropdowns
