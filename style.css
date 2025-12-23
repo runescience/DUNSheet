@@ -105,7 +105,9 @@ body {
 
 .stats-table th {
   background-color: #f0f0f0;
-  /* font-weight: bold; */
+  font-weight: normal;
+  font-size: 10pt;
+  font-family: Arial, sans-serif;
 }
 
 .stats-table input[type="text"] {
@@ -177,7 +179,9 @@ body {
 .shields-table th,
 .armor-table th {
   background-color: #f0f0f0;
-  /* font-weight: bold; */
+  font-weight: normal;
+  font-size: 10pt;
+  font-family: Arial, sans-serif;
   word-wrap: break-word;
   white-space: normal;
 }
