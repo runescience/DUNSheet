@@ -105,13 +105,24 @@ if (typeof shields !== 'undefined') {
   });
 }
 
-// Armor data - add your armor here
-const armorData = {
-  'leather': { cost: 50, armor: 2, move: 0, agil: 0, shoot: 0, percMod: 0, dex: 0, notes: 'Light armor', wt: 5 },
-  'chainmail': { cost: 200, armor: 5, move: -1, agil: -1, shoot: 0, percMod: 0, dex: -1, notes: 'Medium armor', wt: 20 },
-  'plate': { cost: 500, armor: 8, move: -2, agil: -2, shoot: -1, percMod: -1, dex: -2, notes: 'Heavy armor', wt: 40 },
-  // Add more armor as needed
-};
+// Convert armor to object format for lookup
+const armorData = {};
+if (typeof armor !== 'undefined') {
+  armor.forEach(armorItem => {
+    const key = armorItem.name.toLowerCase().replace(/\s+/g, '-');
+    armorData[key] = {
+      cost: armorItem.cost,
+      armor: armorItem.armor,
+      move: armorItem.move,
+      agil: armorItem.agil,
+      shoot: armorItem.shoot,
+      percMod: armorItem.percMod,
+      dex: armorItem.dex,
+      notes: armorItem.notes,
+      wt: armorItem.wt
+    };
+  });
+}
 
 // Populate dropdown options on page load
 window.addEventListener('DOMContentLoaded', function() {
@@ -178,14 +189,16 @@ window.addEventListener('DOMContentLoaded', function() {
   
   // Populate armor dropdowns
   const armorSelects = document.querySelectorAll('.armor-select');
-  armorSelects.forEach(select => {
-    for (let armor in armorData) {
-      const option = document.createElement('option');
-      option.value = armor;
-      option.textContent = armor.charAt(0).toUpperCase() + armor.slice(1);
-      select.appendChild(option);
-    }
-  });
+  if (armorSelects.length > 0 && typeof armor !== 'undefined') {
+    armorSelects.forEach(select => {
+      armor.forEach(armorItem => {
+        const option = document.createElement('option');
+        option.value = armorItem.name.toLowerCase().replace(/\s+/g, '-');
+        option.textContent = armorItem.name;
+        select.appendChild(option);
+      });
+    });
+  }
 });
 
 // Fill weapon data when selected

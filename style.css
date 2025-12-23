@@ -90,18 +90,21 @@ body {
 
 .weapons-container,
 .ranged-container,
+.shields-container,
 .armor-container {
   margin-bottom: 30px;
 }
 
 .weapons-container h3,
 .ranged-container h3,
+.shields-container h3,
 .armor-container h3 {
   margin-bottom: 10px;
 }
 
 .weapons-table,
 .ranged-table,
+.shields-table,
 .armor-table {
   width: 100%;
   border-collapse: collapse;
@@ -112,6 +115,8 @@ body {
 .weapons-table td,
 .ranged-table th,
 .ranged-table td,
+.shields-table th,
+.shields-table td,
 .armor-table th,
 .armor-table td {
   border: 1px solid #ccc;
@@ -121,6 +126,7 @@ body {
 
 .weapons-table th,
 .ranged-table th,
+.shields-table th,
 .armor-table th {
   background-color: #f0f0f0;
   font-weight: bold;
@@ -128,9 +134,11 @@ body {
 
 .weapons-table input,
 .ranged-table input,
+.shields-table input,
 .armor-table input,
 .weapons-table select,
 .ranged-table select,
+.shields-table select,
 .armor-table select {
   width: 100%;
   padding: 5px;
@@ -165,6 +173,7 @@ body {
   .stats-table,
   .weapons-table,
   .ranged-table,
+  .shields-table,
   .armor-table {
     width: 100%;
     font-size: 12px;
@@ -176,6 +185,8 @@ body {
   .weapons-table td,
   .ranged-table th,
   .ranged-table td,
+  .shields-table th,
+  .shields-table td,
   .armor-table th,
   .armor-table td {
     padding: 4px;
