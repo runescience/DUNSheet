@@ -115,8 +115,19 @@ body {
   box-sizing: border-box;
 }
 
+.weapons-ranged-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
 .weapons-container,
-.ranged-container,
+.ranged-container {
+  flex: 1;
+  min-width: 300px;
+}
+
 .shields-container,
 .armor-container {
   margin-bottom: 15px;
