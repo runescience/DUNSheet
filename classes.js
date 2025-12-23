@@ -1,0 +1,83 @@
+
+const classes = [
+  {
+    name: "Animist",
+    description: "Begins with skill tames animals 8 mana. 4 rand spells from channelling Animism and nature. -1 dispelling. -1 fight. no shield or armor. Increase to Strength, fight, shoot, and vitality requires one more point that usual. Can use spears staffs blowpipe daggers"
+  },
+  {
+    name: "Assassin",
+    description: "Begins with skill lethal blow and ambush. Cant wear heavy armor"
+  },
+  {
+    name: "Barbarian",
+    description: "Begins with skill hardy and tough. if it happens to be a dwarf xxx also gets skill giant killer. first increase of Strength requires one less point than usual. cant wear heavy armor. can use any throwing weapons and only bows as ranged weapons. An increase of intelligence requires one more point than usual."
+  },
+  {
+    name: "Bard",
+    description: "Begins with battle battlewizard and imspiring music. 2 random spells from music. free musical instrument common object. -1 casting spells and dispelling. Increase to Strength, fight, and vitality requires one more point that usual."
+  },
+  {
+    name: "Battle dancer",
+    description: "skill battle dancer and flying jump. Cant use heavy armor. Cant use any ranged weapoons but wmay use thrown ones"
+  },
+  {
+    name: "Forester",
+    description: "Begin skills are Battle wizard, Taming animals. Scout. First increase of shoot requires one less point than ususal. Begin with 4 mana points and 2 basic random spaells from oen of the following lores. Channeling or natures. Cannot dispel. Any increase of fig health. Increase to Strength, fight, and vitality requires one more point that usual."
+  },
+  {
+    name: "Gladiator",
+    description: "Begins with dirty fighter and hardy. First increase of fight requires one less point that usual. Cant wear heavy armor. Cant use any ranged weapons but may use thrown. -1 to dex tests. any increase of intelligence requires one more point than usual."
+  },
+  {
+    name: "Knight",
+    description: "Knight, Begins with the skills Giant Killer and Iron Will. The first increase of fight requires one less Point than usual. Can't use any ranged or throwing weapons. -1 to dex test"
+  },
+  {
+    name: "Necromancer",
+    description: "Begins with the skill Reckless wizard. Begins with 8 many points and four random cells from the lore necromancy. When character gets to know all the spells from the lore he may start learning basic spells from the war of Witchcraft. hHi alignment is evil. -1 to fight. Any increases to fight strength Vitality or shoot require one more Point than usual. And only be armed with daggers steps or magic swords. Can't wear any armor or Shields"
+  },
+  {
+    name: "Paladin",
+    description: "Begins with the skill champion of the Gods of good or champion of the Gods of evil. The first increase of 5 requires one less Point than usual. -1 to dexterity tests."
+  },
+  {
+    name: "Ranger",
+    description: "begins with the skill Scout and tracker. May begin with the skill battle wizard by losing Two fortune points. And in that case he will begin with 2 mana points and one random spell from the lore channeling. Character will be able to know a maximum of two spells from the lore and won't be able to dispel. Can't wear heavy armor or equip Shields. Second increase of fight requires one more Point than usual"
+  },
+  {
+    name: "Rogue",
+    description: "Begins with skills skulk and mislead. +1 to dex tests. Cant wear heavy armor or equp shields except bucklers. Cant use 2 handed weapons. Increases of str or vitalityu require one more point that usual. Second increase of fight one more point that ususual"
+  },
+  {
+    name: "Runic Master",
+    description: "Begins with the skills secrets of magic and battle wizard. Begins with 4 mana of points into random basic spells from one of the following lores: runic magic or Earth . Plus one dispelling. Can't wear heavy armor. Can't use uncommon thrown weapons or armors. Can't use ranged weapons but may use throwing ones. Any increase of fight Strength Vitality or shoot require one more Point than usual."
+  },
+  {
+    name: "Scout",
+    description: "Begins wiht skill eagle eye. First increase of move or shoot requires one less point than usual. Cant wear hvy armor"
+  },
+  {
+    name: "Sorcerer",
+    description: "Begins with the skill herbalist. Begins with 8 Mana points and four random spells from one of the following lore: witchcraft or tribal magic. When the character gets to know all the spells from The Chosen lore he may start learning basic spells from the other lure above and also learn from the law or fire. -1 dispelling. -1 fight. Any increase to fight Vitality shoot require one more point than usual. Can be armed with daggers staffs and magical swords. Can't wear any armor or Shield."
+  },
+  {
+    name: "Underworld sorcerer",
+    description: "Begins with the skills battle Wizard and Reckless wizard. Begins with 4 mana and two random spells from one of the following lores: Fire underworld magic or corruption. His alignment is evil. Can't wear armor. Can't use uncommon thrown weapons or armors. Can't use ranged throwing weapons. Any increases to Fight Strength Vitality shoot should require one more point than usual"
+  },
+  {
+    name: "Warrior",
+    description: "Begins with skill Hardened. must choose fight or shoot as first increase (requires one less than normal). Any increase of intelligence requires 1pt more than ususal"
+  },
+  {
+    name: "Warrior monk",
+    description: "Begins with the skill hatred towards the underworld and battle wizard. Begins with 4 mana pts and two random basic spells from one of the following Doors Light or blessing. He can cast and dispel with courage instead of intelligence. Can wear heavy armor but in this case he won't be able to use range North right weapons. Can't use common throwing weapons or armor. Any increase of fight or Vitality require one more point than usual. Can't use any components for Magic Mana potions magic wands or magic staffs."
+  },
+  {
+    name: "Witch hunter",
+    description: "Begins with hunter and hatred towards the underworld. First increase of shoot requires 1 less pt than usual. begin eququest with holy water (special object) which may be used only by himself. Can us any throwing weapons and oly arquebus crossbow handgon or cross bow pistol as ranted weapon. Superstitious: character cant use any other magic objects other than magic weapons or armor. cant use any potions other"
+  },
+  {
+    name: "Wizard",
+    description: "Begins with the skill secrets of magic. Begins with 8 mana points and four random spells from one of the following lores fire air earth water light underworld magic or corruption. If he chooses one of the last two lores his alignment is evil. -1 to Combat Skill. When he gets to know all the spells from The chosen lore he may start learning Basics spells from one of the other lores above. Any increase of fight Strength Vitality or shoot require one more Point than usual. Can't wear any armor or Shield. Can only be armed with daggers staffs and magic swords."
+  }
+];
