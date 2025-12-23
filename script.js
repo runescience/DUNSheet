@@ -67,12 +67,24 @@ meleeWeapons.forEach(weapon => {
   };
 });
 
-// Ranged weapon data - add your ranged weapons here
-const rangedData = {
-  'bow': { cost: 80, damage: '1d6', agil: 3, shoot: 5, reload: 1, range: 100, breakOn: 1, notes: 'Standard bow', wt: 2 },
-  'crossbow': { cost: 120, damage: '1d8', agil: 2, shoot: 4, reload: 2, range: 120, breakOn: 1, notes: 'Heavy crossbow', wt: 4 },
-  // Add more ranged weapons as needed
-};
+// Convert ranged weapons to object format for lookup
+const rangedData = {};
+if (typeof rangedWeapons !== 'undefined') {
+  rangedWeapons.forEach(weapon => {
+    const key = weapon.name.toLowerCase().replace(/\s+/g, '-');
+    rangedData[key] = {
+      cost: weapon.cost,
+      damage: weapon.damage,
+      agil: weapon.agilEffect,
+      shoot: weapon.shootEffect,
+      reload: weapon.reload,
+      range: weapon.range,
+      breakOn: weapon.breakOn,
+      notes: weapon.notes,
+      wt: weapon.wt
+    };
+  });
+}
 
 // Armor data - add your armor here
 const armorData = {
@@ -121,14 +133,16 @@ window.addEventListener('DOMContentLoaded', function() {
   
   // Populate ranged weapon dropdowns
   const rangedSelects = document.querySelectorAll('.ranged-select');
-  rangedSelects.forEach(select => {
-    for (let weapon in rangedData) {
-      const option = document.createElement('option');
-      option.value = weapon;
-      option.textContent = weapon.charAt(0).toUpperCase() + weapon.slice(1);
-      select.appendChild(option);
-    }
-  });
+  if (rangedSelects.length > 0 && typeof rangedWeapons !== 'undefined') {
+    rangedSelects.forEach(select => {
+      rangedWeapons.forEach(weapon => {
+        const option = document.createElement('option');
+        option.value = weapon.name.toLowerCase().replace(/\s+/g, '-');
+        option.textContent = weapon.name;
+        select.appendChild(option);
+      });
+    });
+  }
   
   // Populate armor dropdowns
   const armorSelects = document.querySelectorAll('.armor-select');
