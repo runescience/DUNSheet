@@ -297,96 +297,98 @@
     </div>
   </div>
 
-  <div class="shields-container">
-    <h3>Shields</h3>
-    <table class="shields-table">
-      <thead>
-        <tr>
-          <th>Shields</th>
-          <th>Cost</th>
-          <th>Defend on</th>
-          <th>Agil</th>
-          <th>Shoot</th>
-          <th>Perc</th>
-          <th>Break on</th>
-          <th>Running Fig</th>
-          <th>Notes</th>
-          <th>Wt</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><select class="shield-select" onchange="fillShieldData(this, 0)"><option value="">Select shield</option></select></td>
-          <td><input type="text" readonly></td>
-          <td><input type="text" readonly></td>
-          <td><input type="text" readonly></td>
-          <td><input type="text" readonly></td>
-          <td><input type="text" readonly></td>
-          <td><input type="text" readonly></td>
-          <td><input type="text" readonly></td>
-          <td><input type="text" readonly></td>
-          <td><input type="text" readonly></td>
-        </tr>
-        <tr>
-          <td><select class="shield-select" onchange="fillShieldData(this, 1)"><option value="">Select shield</option></select></td>
-          <td><input type="text" readonly></td>
-          <td><input type="text" readonly></td>
-          <td><input type="text" readonly></td>
-          <td><input type="text" readonly></td>
-          <td><input type="text" readonly></td>
-          <td><input type="text" readonly></td>
-          <td><input type="text" readonly></td>
-          <td><input type="text" readonly></td>
-          <td><input type="text" readonly></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="armor-container">
-    <h3>Armor</h3>
-    <table class="armor-table">
-      <thead>
-        <tr>
-          <th>Armor</th>
-          <th>Cost</th>
-          <th>Armor</th>
-          <th>Move</th>
-          <th>Agil</th>
-          <th>Shoot</th>
-          <th>Perc Mod</th>
-          <th>Dex</th>
-          <th>Notes</th>
-          <th>Wt</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><select class="armor-select" onchange="fillArmorData(this, 0)"><option value="">Select armor</option></select></td>
-          <td><input type="text" readonly></td>
-          <td><input type="text" readonly></td>
-          <td><input type="text" readonly></td>
-          <td><input type="text" readonly></td>
-          <td><input type="text" readonly></td>
-          <td><input type="text" readonly></td>
-          <td><input type="text" readonly></td>
-          <td><input type="text" readonly></td>
-          <td><input type="text" readonly></td>
-        </tr>
-        <tr>
-          <td><select class="armor-select" onchange="fillArmorData(this, 1)"><option value="">Select armor</option></select></td>
-          <td><input type="text" readonly></td>
-          <td><input type="text" readonly></td>
-          <td><input type="text" readonly></td>
-          <td><input type="text" readonly></td>
-          <td><input type="text" readonly></td>
-          <td><input type="text" readonly></td>
-          <td><input type="text" readonly></td>
-          <td><input type="text" readonly></td>
-          <td><input type="text" readonly></td>
-        </tr>
+  <div class="shields-armor-container">
+    <div class="shields-container">
+      <h3>Shields</h3>
+      <table class="shields-table">
+        <thead>
+          <tr>
+            <th>Shields</th>
+            <th>Cost</th>
+            <th>Defend on</th>
+            <th>Agil</th>
+            <th>Shoot</th>
+            <th>Perc</th>
+            <th>Break on</th>
+            <th>Running Fig</th>
+            <th>Notes</th>
+            <th>Wt</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><select class="shield-select" onchange="fillShieldData(this, 0)"><option value="">Select shield</option></select></td>
+            <td><input type="text" readonly></td>
+            <td><input type="text" readonly></td>
+            <td><input type="text" readonly></td>
+            <td><input type="text" readonly></td>
+            <td><input type="text" readonly></td>
+            <td><input type="text" readonly></td>
+            <td><input type="text" readonly></td>
+            <td><input type="text" readonly></td>
+            <td><input type="text" readonly></td>
+          </tr>
+          <tr>
+            <td><select class="shield-select" onchange="fillShieldData(this, 1)"><option value="">Select shield</option></select></td>
+            <td><input type="text" readonly></td>
+            <td><input type="text" readonly></td>
+            <td><input type="text" readonly></td>
+            <td><input type="text" readonly></td>
+            <td><input type="text" readonly></td>
+            <td><input type="text" readonly></td>
+            <td><input type="text" readonly></td>
+            <td><input type="text" readonly></td>
+            <td><input type="text" readonly></td>
+          </tr>
         </tbody>
-    </table>
+      </table>
+    </div>
+
+    <div class="armor-container">
+      <h3>Armor</h3>
+      <table class="armor-table">
+        <thead>
+          <tr>
+            <th>Armor</th>
+            <th>Cost</th>
+            <th>Armor</th>
+            <th>Move</th>
+            <th>Agil</th>
+            <th>Shoot</th>
+            <th>Perc Mod</th>
+            <th>Dex</th>
+            <th>Notes</th>
+            <th>Wt</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><select class="armor-select" onchange="fillArmorData(this, 0)"><option value="">Select armor</option></select></td>
+            <td><input type="text" readonly></td>
+            <td><input type="text" readonly></td>
+            <td><input type="text" readonly></td>
+            <td><input type="text" readonly></td>
+            <td><input type="text" readonly></td>
+            <td><input type="text" readonly></td>
+            <td><input type="text" readonly></td>
+            <td><input type="text" readonly></td>
+            <td><input type="text" readonly></td>
+          </tr>
+          <tr>
+            <td><select class="armor-select" onchange="fillArmorData(this, 1)"><option value="">Select armor</option></select></td>
+            <td><input type="text" readonly></td>
+            <td><input type="text" readonly></td>
+            <td><input type="text" readonly></td>
+            <td><input type="text" readonly></td>
+            <td><input type="text" readonly></td>
+            <td><input type="text" readonly></td>
+            <td><input type="text" readonly></td>
+            <td><input type="text" readonly></td>
+            <td><input type="text" readonly></td>
+          </tr>
+          </tbody>
+      </table>
+    </div>
   </div>
 
   <script src="classes.js"></script>

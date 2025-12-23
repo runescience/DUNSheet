@@ -129,9 +129,17 @@ body {
   min-width: 300px;
 }
 
+.shields-armor-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
 .shields-container,
 .armor-container {
-  margin-bottom: 15px;
+  flex: 1;
+  min-width: 300px;
 }
 
 .weapons-container h3,
@@ -170,6 +178,8 @@ body {
 .armor-table th {
   background-color: #f0f0f0;
   /* font-weight: bold; */
+  word-wrap: break-word;
+  white-space: normal;
 }
 
 .weapons-table input,
