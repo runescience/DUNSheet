@@ -4,23 +4,42 @@ html {
 }
 
 body {
-  font-family: Arial, sans-serif;
-  padding: 10px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 8px;
   margin: 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+}
+
+.wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+  background: white;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
 }
 
 .container {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   gap: 5px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 .name-field {
   grid-column: span 3;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  padding: 4px 8px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.name-field:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
 .empty {
@@ -31,39 +50,70 @@ body {
   grid-column: span 1;
   display: flex;
   align-items: center;
-  gap: 5px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  gap: 6px;
+  padding: 4px 8px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  background: #f8f9fa;
+  transition: all 0.3s ease;
+}
+
+.vp-field:hover {
+  background: #f0f1f3;
 }
 
 .vp-field label {
-  font-weight: normal;
+  font-weight: 600;
   white-space: nowrap;
+  color: #495057;
 }
 
 .vp-field .number-field {
   flex: 1;
-  padding: 4px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  width: 50px;
-  max-width: 50px;
+  padding: 3px 4px;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  width: 40px;
+  max-width: 40px;
+  transition: all 0.3s ease;
+}
+
+.vp-field .number-field:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
 .net-line {
   grid-column: span 1;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  padding: 4px 8px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  background: #f8f9fa;
+  font-weight: 600;
+  color: #495057;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .dropdown-1,
 .dropdown-2 {
   grid-column: span 2;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  padding: 4px 8px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 15px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dropdown-1:focus,
+.dropdown-2:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
 .tables-container {
@@ -84,47 +134,79 @@ body {
 }
 
 .description-box h4 {
-  margin: 0 0 5px 0;
+  margin: 0 0 10px 0;
+  color: #495057;
+  font-size: 16px;
+  font-weight: 600;
 }
 
 .description-box textarea {
   width: 100%;
-  padding: 2px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-family: Arial, sans-serif;
-  font-size: 10px;
+  padding: 12px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 13px;
   resize: vertical;
   box-sizing: border-box;
+  transition: all 0.3s ease;
+  line-height: 1.5;
+}
+
+.description-box textarea:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
 .stats-table {
   flex: 1;
   min-width: 300px;
   border-collapse: collapse;
-  border: 1px solid #ccc;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
 .stats-table th,
 .stats-table td {
-  border: 1px solid #ccc;
-  padding: 4px;
+  border: 1px solid #e0e0e0;
+  padding: 3px;
   text-align: center;
+  width: 1%;
+  white-space: nowrap;
+}
+
+.stats-table td:first-child {
+  width: auto;
+  text-align: left;
+  padding-left: 8px;
 }
 
 .stats-table th {
-  background-color: #f0f0f0;
-  font-weight: normal;
-  font-size: 10pt;
-  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  font-weight: 600;
+  font-size: 11pt;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .stats-table input[type="text"] {
-  width: 100%;
-  padding: 2px;
-  border: 1px solid #ddd;
-  border-radius: 3px;
+  width: 45px;
+  padding: 3px 2px;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
   box-sizing: border-box;
+  transition: all 0.3s ease;
+  font-size: 13px;
+  text-align: center;
+}
+
+.stats-table input[type="text"]:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.1);
 }
 
 .weapons-ranged-container {
@@ -157,8 +239,11 @@ body {
 .ranged-container h3,
 .shields-container h3,
 .armor-container h3 {
-  margin-bottom: 5px;
+  margin-bottom: 12px;
   margin-top: 5px;
+  color: #495057;
+  font-size: 18px;
+  font-weight: 600;
 }
 
 .weapons-table,
@@ -167,7 +252,10 @@ body {
 .armor-table {
   width: 100%;
   border-collapse: collapse;
-  border: 1px solid #ccc;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
 .weapons-table th,
@@ -178,19 +266,22 @@ body {
 .shields-table td,
 .armor-table th,
 .armor-table td {
-  border: 1px solid #ccc;
-  padding: 4px;
+  border: 1px solid #e0e0e0;
+  padding: 3px;
   text-align: center;
+  width: 1%;
+  white-space: nowrap;
 }
 
 .weapons-table th,
 .ranged-table th,
 .shields-table th,
 .armor-table th {
-  background-color: #f0f0f0;
-  font-weight: normal;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  font-weight: 600;
   font-size: 10pt;
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   word-wrap: break-word;
   white-space: normal;
 }
@@ -198,16 +289,42 @@ body {
 .weapons-table input,
 .ranged-table input,
 .shields-table input,
-.armor-table input,
+.armor-table input {
+  width: 45px;
+  padding: 2px;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+  font-size: 12px;
+  text-align: center;
+}
+
 .weapons-table select,
 .ranged-table select,
 .shields-table select,
 .armor-table select {
   width: 100%;
+  min-width: 120px;
   padding: 2px;
-  border: 1px solid #ddd;
-  border-radius: 3px;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
   box-sizing: border-box;
+  transition: all 0.3s ease;
+  font-size: 12px;
+}
+
+.weapons-table input:focus,
+.ranged-table input:focus,
+.shields-table input:focus,
+.armor-table input:focus,
+.weapons-table select:focus,
+.ranged-table select:focus,
+.shields-table select:focus,
+.armor-table select:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.1);
 }
 
 @media (max-width: 768px) {
@@ -263,22 +380,32 @@ body {
 }
 
 .save-restore-container button {
-  padding: 10px 20px;
-  font-size: 14px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  background-color: #f0f0f0;
+  padding: 12px 24px;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
   cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
 }
 
 .save-restore-container button:hover {
-  background-color: #e0e0e0;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4);
+}
+
+.save-restore-container button:active {
+  transform: translateY(0);
 }
 
 .equip-checkbox {
   cursor: pointer;
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
+  accent-color: #667eea;
 }
 
 .weapons-table td:first-child,
@@ -289,6 +416,6 @@ body {
 .ranged-table th:first-child,
 .shields-table th:first-child,
 .armor-table th:first-child {
-  width: 30px;
+  width: 15px;
   text-align: center;
 }
