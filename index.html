@@ -12,8 +12,17 @@
   <div class="container">
     <input type="text" class="name-field" placeholder="Name">
     <div class="empty"></div>
-    <div class="vp-label">VP:</div>
-    <input type="number" class="number-field" placeholder="Enter number">
+    
+    <div class="vp-field">
+      <label for="gold-input">Gold:</label>
+      <input type="number" id="gold-input" class="number-field" placeholder="0">
+    </div>
+    
+    <div class="vp-field">
+      <label for="vp-input">VP:</label>
+      <input type="number" id="vp-input" class="number-field" placeholder="0">
+    </div>
+    
     <div class="net-line">Net Line</div>
     <select class="dropdown-1">
       <option value="">Select class</option>
@@ -185,6 +194,7 @@
       <table class="weapons-table">
         <thead>
           <tr>
+            <th></th>
             <th>Weapons</th>
             <th>Cost</th>
             <th>Dmg</th>
@@ -199,6 +209,7 @@
         </thead>
         <tbody>
           <tr>
+            <td><input type="checkbox" class="equip-checkbox" onchange="updateStatModifiers()"></td>
             <td><select class="weapon-select" onchange="fillWeaponData(this, 0)">
                 <option value="">Select weapon</option>
               </select></td>
@@ -213,6 +224,7 @@
             <td><input type="text" readonly></td>
           </tr>
           <tr>
+            <td><input type="checkbox" class="equip-checkbox" onchange="updateStatModifiers()"></td>
             <td><select class="weapon-select" onchange="fillWeaponData(this, 1)">
                 <option value="">Select weapon</option>
               </select></td>
@@ -227,6 +239,7 @@
             <td><input type="text" readonly></td>
           </tr>
           <tr>
+            <td><input type="checkbox" class="equip-checkbox" onchange="updateStatModifiers()"></td>
             <td><select class="weapon-select" onchange="fillWeaponData(this, 2)">
                 <option value="">Select weapon</option>
               </select></td>
@@ -241,6 +254,7 @@
             <td><input type="text" readonly></td>
           </tr>
           <tr>
+            <td><input type="checkbox" class="equip-checkbox" onchange="updateStatModifiers()"></td>
             <td><select class="weapon-select" onchange="fillWeaponData(this, 3)">
                 <option value="">Select weapon</option>
               </select></td>
@@ -263,6 +277,7 @@
       <table class="ranged-table">
         <thead>
           <tr>
+            <th></th>
             <th>Ranged / Weaps</th>
             <th>Cost</th>
             <th>Damage</th>
@@ -277,6 +292,7 @@
         </thead>
         <tbody>
           <tr>
+            <td><input type="checkbox" class="equip-checkbox" onchange="updateStatModifiers()"></td>
             <td><select class="ranged-select" onchange="fillRangedData(this, 0)">
                 <option value="">Select ranged weapon</option>
               </select></td>
@@ -291,6 +307,7 @@
             <td><input type="text" readonly></td>
           </tr>
           <tr>
+            <td><input type="checkbox" class="equip-checkbox" onchange="updateStatModifiers()"></td>
             <td><select class="ranged-select" onchange="fillRangedData(this, 1)">
                 <option value="">Select ranged weapon</option>
               </select></td>
@@ -315,6 +332,7 @@
       <table class="shields-table">
         <thead>
           <tr>
+            <th></th>
             <th>Shields</th>
             <th>Cost</th>
             <th>Defend on</th>
@@ -329,6 +347,7 @@
         </thead>
         <tbody>
           <tr>
+            <td><input type="checkbox" class="equip-checkbox" onchange="updateStatModifiers()"></td>
             <td><select class="shield-select" onchange="fillShieldData(this, 0)">
                 <option value="">Select shield</option>
               </select></td>
@@ -343,6 +362,7 @@
             <td><input type="text" readonly></td>
           </tr>
           <tr>
+            <td><input type="checkbox" class="equip-checkbox" onchange="updateStatModifiers()"></td>
             <td><select class="shield-select" onchange="fillShieldData(this, 1)">
                 <option value="">Select shield</option>
               </select></td>
@@ -365,6 +385,7 @@
       <table class="armor-table">
         <thead>
           <tr>
+            <th></th>
             <th>Armor</th>
             <th>Cost</th>
             <th>Armor</th>
@@ -379,6 +400,7 @@
         </thead>
         <tbody>
           <tr>
+            <td><input type="checkbox" class="equip-checkbox" onchange="updateStatModifiers()"></td>
             <td><select class="armor-select" onchange="fillArmorData(this, 0)">
                 <option value="">Select armor</option>
               </select></td>
@@ -393,6 +415,7 @@
             <td><input type="text" readonly></td>
           </tr>
           <tr>
+            <td><input type="checkbox" class="equip-checkbox" onchange="updateStatModifiers()"></td>
             <td><select class="armor-select" onchange="fillArmorData(this, 1)">
                 <option value="">Select armor</option>
               </select></td>
@@ -411,12 +434,18 @@
     </div>
   </div>
 
+  <div class="save-restore-container">
+    <button onclick="saveSheet()">Save As</button>
+    <button onclick="restoreSheet()">Restore</button>
+  </div>
+
   <script src="classes.js"></script>
   <script src="races.js"></script>
   <script src="classRaceLookup.js"></script>
   <script src="ranged.js"></script>
   <script src="shields.js"></script>
   <script src="armor.js"></script>
+  <script src="saveRestore.js"></script>
   <script src="script.js"></script>
 </body>
 

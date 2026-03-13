@@ -27,19 +27,28 @@ body {
   grid-column: span 1;
 }
 
-.vp-label {
+.vp-field {
   grid-column: span 1;
-  padding: 10px;
   display: flex;
   align-items: center;
+  gap: 5px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
-.number-field {
-  grid-column: span 1;
+.vp-field label {
+  font-weight: normal;
+  white-space: nowrap;
+}
+
+.vp-field .number-field {
+  flex: 1;
   padding: 4px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  max-width: 80px;
+  width: 50px;
+  max-width: 50px;
 }
 
 .net-line {
@@ -207,8 +216,7 @@ body {
   }
 
   .name-field,
-  .vp-label,
-  .number-field,
+  .vp-field,
   .net-line,
   .dropdown-1,
   .dropdown-2,
@@ -245,4 +253,42 @@ body {
   .armor-table td {
     padding: 2px;
   }
+}
+
+.save-restore-container {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0;
+  justify-content: center;
+}
+
+.save-restore-container button {
+  padding: 10px 20px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f0f0f0;
+  cursor: pointer;
+}
+
+.save-restore-container button:hover {
+  background-color: #e0e0e0;
+}
+
+.equip-checkbox {
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+}
+
+.weapons-table td:first-child,
+.ranged-table td:first-child,
+.shields-table td:first-child,
+.armor-table td:first-child,
+.weapons-table th:first-child,
+.ranged-table th:first-child,
+.shields-table th:first-child,
+.armor-table th:first-child {
+  width: 30px;
+  text-align: center;
 }

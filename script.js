@@ -216,7 +216,10 @@ window.addEventListener('DOMContentLoaded', function() {
 // Fill weapon data when selected
 function fillWeaponData(selectElement, rowIndex) {
   const weaponName = selectElement.value;
-  if (!weaponName) return;
+  if (!weaponName) {
+    updateStatModifiers();
+    return;
+  }
   
   const weapon = weaponData[weaponName];
   const row = selectElement.closest('tr');
@@ -231,12 +234,17 @@ function fillWeaponData(selectElement, rowIndex) {
   inputs[6].value = weapon.twoHanded;
   inputs[7].value = weapon.notes;
   inputs[8].value = weapon.wt;
+  
+  updateStatModifiers();
 }
 
 // Fill ranged weapon data when selected
 function fillRangedData(selectElement, rowIndex) {
   const weaponName = selectElement.value;
-  if (!weaponName) return;
+  if (!weaponName) {
+    updateStatModifiers();
+    return;
+  }
   
   const weapon = rangedData[weaponName];
   const row = selectElement.closest('tr');
@@ -251,12 +259,17 @@ function fillRangedData(selectElement, rowIndex) {
   inputs[6].value = weapon.breakOn;
   inputs[7].value = weapon.notes;
   inputs[8].value = weapon.wt;
+  
+  updateStatModifiers();
 }
 
 // Fill shield data when selected
 function fillShieldData(selectElement, rowIndex) {
   const shieldName = selectElement.value;
-  if (!shieldName) return;
+  if (!shieldName) {
+    updateStatModifiers();
+    return;
+  }
   
   const shield = shieldsData[shieldName];
   const row = selectElement.closest('tr');
@@ -271,12 +284,17 @@ function fillShieldData(selectElement, rowIndex) {
   inputs[6].value = shield.runningFig;
   inputs[7].value = shield.notes;
   inputs[8].value = shield.wt;
+  
+  updateStatModifiers();
 }
 
 // Fill armor data when selected
 function fillArmorData(selectElement, rowIndex) {
   const armorName = selectElement.value;
-  if (!armorName) return;
+  if (!armorName) {
+    updateStatModifiers();
+    return;
+  }
   
   const armor = armorData[armorName];
   const row = selectElement.closest('tr');
@@ -291,6 +309,8 @@ function fillArmorData(selectElement, rowIndex) {
   inputs[6].value = armor.dex;
   inputs[7].value = armor.notes;
   inputs[8].value = armor.wt;
+  
+  updateStatModifiers();
 }
 
 // Fill race stats when race is selected
@@ -441,4 +461,141 @@ function updateRaceAllowed() {
   } else {
     raceAllowedInput.style.backgroundColor = '#ff6b6b';
   }
+}
+
+
+// Calculate and update stat modifiers from equipment
+function updateStatModifiers() {
+  const mods = {
+    'Movement': 0,
+    'Combat Skill': 0,
+    'Strength': 0,
+    'Shooting': 0,
+    'Armor': 0,
+    'Fortune': 0,
+    'Agility': 0,
+    'Int': 0,
+    'Mana': 0,
+    'Courage': 0,
+    'Vitality': 0
+  };
+
+  // Collect modifiers from weapons
+  document.querySelectorAll('.weapons-table tbody tr').forEach(row => {
+    const checkbox = row.querySelector('.equip-checkbox');
+    const select = row.querySelector('select');
+    if (checkbox && checkbox.checked && select && select.value) {
+      const weapon = weaponData[select.value];
+      if (weapon) {
+        // Combat Skill modifier
+        if (weapon.usersCS) {
+          const val = parseFloat(weapon.usersCS);
+          if (!isNaN(val)) mods['Combat Skill'] += val;
+        }
+        // Armor modifier from weapon
+        if (weapon.armorEffect) {
+          const val = parseFloat(weapon.armorEffect);
+          if (!isNaN(val)) mods['Armor'] += val;
+        }
+      }
+    }
+  });
+
+  // Collect modifiers from ranged weapons
+  document.querySelectorAll('.ranged-table tbody tr').forEach(row => {
+    const checkbox = row.querySelector('.equip-checkbox');
+    const select = row.querySelector('select');
+    if (checkbox && checkbox.checked && select && select.value) {
+      const weapon = rangedData[select.value];
+      if (weapon) {
+        // Agility modifier
+        if (weapon.agil) {
+          const val = parseFloat(weapon.agil);
+          if (!isNaN(val)) mods['Agility'] += val;
+        }
+        // Shooting modifier
+        if (weapon.shoot) {
+          const val = parseFloat(weapon.shoot);
+          if (!isNaN(val)) mods['Shooting'] += val;
+        }
+      }
+    }
+  });
+
+  // Collect modifiers from shields
+  document.querySelectorAll('.shields-table tbody tr').forEach(row => {
+    const checkbox = row.querySelector('.equip-checkbox');
+    const select = row.querySelector('select');
+    if (checkbox && checkbox.checked && select && select.value) {
+      const shield = shieldsData[select.value];
+      if (shield) {
+        // Agility modifier
+        if (shield.agil) {
+          const val = parseFloat(shield.agil);
+          if (!isNaN(val)) mods['Agility'] += val;
+        }
+        // Shooting modifier
+        if (shield.shoot) {
+          const val = parseFloat(shield.shoot);
+          if (!isNaN(val)) mods['Shooting'] += val;
+        }
+      }
+    }
+  });
+
+  // Collect modifiers from armor
+  document.querySelectorAll('.armor-table tbody tr').forEach(row => {
+    const checkbox = row.querySelector('.equip-checkbox');
+    const select = row.querySelector('select');
+    if (checkbox && checkbox.checked && select && select.value) {
+      const armorItem = armorData[select.value];
+      if (armorItem) {
+        // Movement modifier
+        if (armorItem.move) {
+          const val = parseFloat(armorItem.move);
+          if (!isNaN(val)) mods['Movement'] += val;
+        }
+        // Agility modifier
+        if (armorItem.agil) {
+          const val = parseFloat(armorItem.agil);
+          if (!isNaN(val)) mods['Agility'] += val;
+        }
+        // Shooting modifier
+        if (armorItem.shoot) {
+          const val = parseFloat(armorItem.shoot);
+          if (!isNaN(val)) mods['Shooting'] += val;
+        }
+        // Armor bonus
+        if (armorItem.armor) {
+          const val = parseFloat(armorItem.armor);
+          if (!isNaN(val)) mods['Armor'] += val;
+        }
+      }
+    }
+  });
+
+  // Update the Mod column in stats tables
+  const statsTables = document.querySelectorAll('.stats-table tbody');
+  const statsOrder = [
+    'Movement', 'Combat Skill', 'Strength', 'Shooting', 'Armor', 'Fortune',
+    'Agility', 'Int', 'Mana', 'Courage', 'Vitality'
+  ];
+
+  let statIndex = 0;
+  statsTables.forEach(table => {
+    const rows = table.querySelectorAll('tr');
+    rows.forEach(row => {
+      const firstCell = row.querySelector('td');
+      if (firstCell && statIndex < statsOrder.length) {
+        const statName = statsOrder[statIndex];
+        const inputs = row.querySelectorAll('input');
+        // Mod column is index 4
+        if (inputs[4]) {
+          const modValue = mods[statName];
+          inputs[4].value = modValue !== 0 ? (modValue > 0 ? '+' + modValue : modValue) : '';
+        }
+        statIndex++;
+      }
+    });
+  });
 }
