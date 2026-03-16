@@ -1,0 +1,256 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 20px;
+  font-family: 'Arial', sans-serif;
+  font-size: 12px;
+  background-color: #f4f1e8;
+  color: #2c2416;
+}
+
+#div1 {
+  margin-bottom: 10px;
+  padding: 7px;
+  background-color: #fafaf8;
+  border: 1px solid #d4c4a8;
+  border-radius: 5px;
+}
+
+#div1 input, #div1 select {
+  margin: 2px;
+  padding: 1px 1px;
+  border: 1px solid #8b7355;
+  border-radius: 3px;
+  font-size: 0.95em;
+  background-color: #fff;
+}
+
+#div1 input:focus, #div1 select:focus {
+  outline: none;
+  border-color: #5a4a3a;
+  box-shadow: 0 0 5px rgba(90, 74, 58, 0.3);
+}
+
+#age, #height, #weight, #level {
+  width: 50px;
+}
+
+#str, #int, #wis, #dex, #con, #chr,
+#str-racial, #int-racial, #wis-racial, #dex-racial, #con-racial, #chr-racial,
+#str-final, #int-final, #wis-final, #dex-final, #con-final, #ac-val, #adjac-val,
+#chr-final, #hp-val, #adjhp-val,
+.save-mod {
+  width: 40px;
+}
+
+#str-final, #int-final, #wis-final, #dex-final, #con-final, #chr-final {
+  border: none;
+  font-weight: bold;
+  color: #8b4513;
+}
+
+#str-racial, #int-racial, #wis-racial, #dex-racial, #con-racial, #chr-racial {
+  border: none;
+}
+
+#str-final, #int-final, #wis-final, #dex-final, #con-final, #chr-final,
+#str-racial, #int-racial, #wis-racial, #dex-racial, #con-racial, #chr-racial {
+  text-align: center;
+}
+
+#div2 {
+  display: flex;
+  gap: 12px;
+}
+
+.west {
+  flex: 1;
+}
+
+.saving-throw {
+  flex: 1;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+}
+
+td, th {
+  border: 1px solid #d4c4a8;
+  padding: 2px 2px;
+  text-align: center;
+  font-size: 0.9em;
+}
+
+th {
+  background-color: #5a4a3a;
+  color: white;
+  font-weight: bold;
+  border-color: #8b7355;
+  font-size: 0.90em;
+}
+
+.saving-throw td, .saving-throw th {
+  width: 20px;
+}
+
+#save-paral-final, #save-petri-final, #save-rod-final, #save-breath-final, #save-spell-final {
+  font-weight: bold;
+  color: #8b4513;
+  background-color: #f4f1e8;
+}
+
+.equipment-container {
+  margin-top: 8px;
+  display: flex;
+  gap: 8px;
+}
+
+.equipment-column {
+  flex: 1;
+}
+
+.equipment-section {
+  margin-bottom: 10px;
+  padding: 1px;
+  background-color: #fafaf8;
+  border: 1px solid #d4c4a8;
+  border-radius: 5px;
+}
+
+.equipment-header {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  font-size: 0.95em;
+  padding: 5px;
+  background-color: #5a4a3a;
+  color: white;
+  border: 1px solid #8b7355;
+  border-radius: 3px 3px 0 0;
+  text-transform: uppercase;
+  letter-spacing: 0.75px;
+}
+
+.equipment-header input {
+  margin-right: 10px;
+}
+
+.equipment-items {
+  display: flex;
+  flex-direction: column;
+}
+
+.equipment-item {
+  display: flex;
+  align-items: center;
+  padding: 1px 1px;
+  border: 1px solid #d4c4a8;
+  border-top: none;
+  font-size: 0.95em;
+  transition: background-color 0.2s;
+}
+
+.equipment-item:hover {
+  background-color: #fafaf8;
+}
+
+.equipment-item input {
+  margin-right: 10px;
+}
+
+.item-name {
+  flex: 1;
+}
+
+.item-qty {
+  width: 30px;
+  text-align: center;
+  border: 1px solid #8b7355;
+  border-radius: 3px;
+  padding: 2px;
+}
+
+.item-cost {
+  min-width: 80px;
+  text-align: right;
+}
+
+.equipment-owned {
+  margin-top: 8px;
+  padding: 3px;
+  border: 1px solid #d4c4a8;
+  border-radius: 5px;
+  background-color: #fafaf8;
+}
+
+.equipment-owned > div {
+  margin-bottom: 2px;
+}
+
+.equipment-owned label {
+  margin-right: 20px;
+  font-weight: bold;
+  color: #5a4a3a;
+  font-size: 0.95em;
+}
+
+.equipment-owned input[type="text"] {
+  width: 100px;
+  padding: 1px 1px;
+  border: 1px solid #8b7355;
+  border-radius: 3px;
+  font-size: 0.95em;
+}
+
+.equipment-owned textarea {
+  width: 100%;
+  padding: 5px;
+  font-family: 'Arial', sans-serif;
+  font-size: 0.95em;
+  border: 1px solid #8b7355;
+  border-radius: 3px;
+  resize: vertical;
+}
+
+.equipment-owned textarea:focus,
+.equipment-owned input[type="text"]:focus {
+  outline: none;
+  border-color: #5a4a3a;
+  box-shadow: 0 0 5px rgba(90, 74, 58, 0.3);
+}
+
+.combat-equipment {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 8px;
+  background-color: #fff;
+}
+
+.combat-equipment td, .combat-equipment th {
+  border: 1px solid #d4c4a8;
+  padding: 0px 0px;
+  text-align: center;
+  font-size: 0.96em;
+}
+
+.combat-equipment th {
+  background-color: #5a4a3a;
+  color: white;
+  border-color: #8b7355;
+  font-size: 0.95em;
+}
+
+.combat-equipment select {
+  width: 100%;
+  padding: 0px;
+  border: 1px solid #8b7355;
+  border-radius: 3px;
+  font-size: 0.95em;
+}

@@ -7,17 +7,19 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   padding: 8px;
   margin: 0;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background-color: #f4f1e8;
   min-height: 100vh;
+  color: #2c2416;
 }
 
 .wrapper {
   max-width: 1400px;
   margin: 0 auto;
-  background: white;
+  background: #fafaf8;
   padding: 15px;
-  border-radius: 12px;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  border: 1px solid #d4c4a8;
+  box-shadow: 0 4px 16px rgba(44,36,22,0.12);
 }
 
 .container {
@@ -30,16 +32,17 @@ body {
 .name-field {
   grid-column: span 3;
   padding: 4px 8px;
-  border: 2px solid #e0e0e0;
-  border-radius: 8px;
+  border: 1px solid #8b7355;
+  border-radius: 3px;
   font-size: 16px;
   transition: all 0.3s ease;
+  background-color: #fff;
 }
 
 .name-field:focus {
   outline: none;
-  border-color: #667eea;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  border-color: #5a4a3a;
+  box-shadow: 0 0 5px rgba(90, 74, 58, 0.3);
 }
 
 .empty {
@@ -52,27 +55,27 @@ body {
   align-items: center;
   gap: 6px;
   padding: 4px 8px;
-  border: 2px solid #e0e0e0;
-  border-radius: 8px;
-  background: #f8f9fa;
+  border: 1px solid #d4c4a8;
+  border-radius: 3px;
+  background: #fafaf8;
   transition: all 0.3s ease;
 }
 
 .vp-field:hover {
-  background: #f0f1f3;
+  background: #f4f1e8;
 }
 
 .vp-field label {
   font-weight: 600;
   white-space: nowrap;
-  color: #495057;
+  color: #5a4a3a;
 }
 
 .vp-field .number-field {
   flex: 1;
   padding: 3px 4px;
-  border: 1px solid #dee2e6;
-  border-radius: 6px;
+  border: 1px solid #8b7355;
+  border-radius: 3px;
   width: 40px;
   max-width: 40px;
   transition: all 0.3s ease;
@@ -80,18 +83,18 @@ body {
 
 .vp-field .number-field:focus {
   outline: none;
-  border-color: #667eea;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  border-color: #5a4a3a;
+  box-shadow: 0 0 5px rgba(90, 74, 58, 0.3);
 }
 
 .net-line {
   grid-column: span 1;
   padding: 4px 8px;
-  border: 2px solid #e0e0e0;
-  border-radius: 8px;
-  background: #f8f9fa;
+  border: 1px solid #d4c4a8;
+  border-radius: 3px;
+  background: #fafaf8;
   font-weight: 600;
-  color: #495057;
+  color: #5a4a3a;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -101,10 +104,10 @@ body {
 .dropdown-2 {
   grid-column: span 2;
   padding: 4px 8px;
-  border: 2px solid #e0e0e0;
-  border-radius: 8px;
+  border: 1px solid #8b7355;
+  border-radius: 3px;
   font-size: 15px;
-  background: white;
+  background: #fff;
   cursor: pointer;
   transition: all 0.3s ease;
 }
@@ -112,8 +115,8 @@ body {
 .dropdown-1:focus,
 .dropdown-2:focus {
   outline: none;
-  border-color: #667eea;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  border-color: #5a4a3a;
+  box-shadow: 0 0 5px rgba(90, 74, 58, 0.3);
 }
 
 .tables-container {
@@ -135,43 +138,47 @@ body {
 
 .description-box h4 {
   margin: 0 0 10px 0;
-  color: #495057;
+  color: #5a4a3a;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.75px;
 }
 
 .description-box textarea {
   width: 100%;
   padding: 12px;
-  border: 2px solid #e0e0e0;
-  border-radius: 8px;
+  border: 1px solid #8b7355;
+  border-radius: 3px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 13px;
   resize: vertical;
   box-sizing: border-box;
   transition: all 0.3s ease;
   line-height: 1.5;
+  background-color: #fff;
 }
 
 .description-box textarea:focus {
   outline: none;
-  border-color: #667eea;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  border-color: #5a4a3a;
+  box-shadow: 0 0 5px rgba(90, 74, 58, 0.3);
 }
 
 .stats-table {
   flex: 1;
   min-width: 300px;
   border-collapse: collapse;
-  border: 2px solid #e0e0e0;
-  border-radius: 8px;
+  border: 1px solid #d4c4a8;
+  border-radius: 3px;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 8px rgba(44,36,22,0.07);
+  background-color: #fff;
 }
 
 .stats-table th,
 .stats-table td {
-  border: 1px solid #e0e0e0;
+  border: 1px solid #d4c4a8;
   padding: 3px;
   text-align: center;
   width: 1%;
@@ -185,18 +192,19 @@ body {
 }
 
 .stats-table th {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background-color: #5a4a3a;
   color: white;
-  font-weight: 600;
+  font-weight: bold;
   font-size: 11pt;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  border-color: #8b7355;
 }
 
 .stats-table input[type="text"] {
   width: 45px;
   padding: 3px 2px;
-  border: 1px solid #dee2e6;
-  border-radius: 4px;
+  border: 1px solid #8b7355;
+  border-radius: 3px;
   box-sizing: border-box;
   transition: all 0.3s ease;
   font-size: 13px;
@@ -205,8 +213,8 @@ body {
 
 .stats-table input[type="text"]:focus {
   outline: none;
-  border-color: #667eea;
-  box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.1);
+  border-color: #5a4a3a;
+  box-shadow: 0 0 5px rgba(90, 74, 58, 0.3);
 }
 
 .weapons-ranged-container {
@@ -241,9 +249,31 @@ body {
 .armor-container h3 {
   margin-bottom: 12px;
   margin-top: 5px;
-  color: #495057;
+  color: #5a4a3a;
   font-size: 18px;
-  font-weight: 600;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.75px;
+}
+
+#equip-filter-btn {
+  margin-left: 10px;
+  padding: 2px 8px;
+  font-size: 11px;
+  font-weight: bold;
+  border: 1px solid #8b7355;
+  border-radius: 3px;
+  background-color: #fafaf8;
+  color: #5a4a3a;
+  cursor: pointer;
+  vertical-align: middle;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+#equip-filter-btn:hover {
+  background-color: #5a4a3a;
+  color: white;
 }
 
 .weapons-table,
@@ -252,10 +282,11 @@ body {
 .armor-table {
   width: 100%;
   border-collapse: collapse;
-  border: 2px solid #e0e0e0;
-  border-radius: 8px;
+  border: 1px solid #d4c4a8;
+  border-radius: 3px;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 8px rgba(44,36,22,0.07);
+  background-color: #fff;
 }
 
 .weapons-table th,
@@ -266,7 +297,7 @@ body {
 .shields-table td,
 .armor-table th,
 .armor-table td {
-  border: 1px solid #e0e0e0;
+  border: 1px solid #d4c4a8;
   padding: 3px;
   text-align: center;
   width: 1%;
@@ -277,11 +308,12 @@ body {
 .ranged-table th,
 .shields-table th,
 .armor-table th {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background-color: #5a4a3a;
   color: white;
-  font-weight: 600;
+  font-weight: bold;
   font-size: 10pt;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  border-color: #8b7355;
   word-wrap: break-word;
   white-space: normal;
 }
@@ -292,8 +324,8 @@ body {
 .armor-table input {
   width: 45px;
   padding: 2px;
-  border: 1px solid #dee2e6;
-  border-radius: 4px;
+  border: 1px solid #8b7355;
+  border-radius: 3px;
   box-sizing: border-box;
   transition: all 0.3s ease;
   font-size: 12px;
@@ -307,8 +339,8 @@ body {
   width: 100%;
   min-width: 120px;
   padding: 2px;
-  border: 1px solid #dee2e6;
-  border-radius: 4px;
+  border: 1px solid #8b7355;
+  border-radius: 3px;
   box-sizing: border-box;
   transition: all 0.3s ease;
   font-size: 12px;
@@ -323,8 +355,8 @@ body {
 .shields-table select:focus,
 .armor-table select:focus {
   outline: none;
-  border-color: #667eea;
-  box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.1);
+  border-color: #5a4a3a;
+  box-shadow: 0 0 5px rgba(90, 74, 58, 0.3);
 }
 
 @media (max-width: 768px) {
@@ -382,19 +414,22 @@ body {
 .save-restore-container button {
   padding: 12px 24px;
   font-size: 15px;
-  font-weight: 600;
-  border: none;
-  border-radius: 8px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  font-weight: bold;
+  border: 1px solid #8b7355;
+  border-radius: 3px;
+  background-color: #5a4a3a;
   color: white;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 4px 12px rgba(44,36,22,0.2);
+  text-transform: uppercase;
+  letter-spacing: 0.75px;
 }
 
 .save-restore-container button:hover {
+  background-color: #4a3a2a;
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 6px 16px rgba(44,36,22,0.3);
 }
 
 .save-restore-container button:active {
@@ -405,7 +440,7 @@ body {
   cursor: pointer;
   width: 18px;
   height: 18px;
-  accent-color: #667eea;
+  accent-color: #5a4a3a;
 }
 
 .weapons-table td:first-child,

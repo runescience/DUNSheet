@@ -438,6 +438,7 @@ function updateRaceAllowed() {
   if (!classValue || !raceValue) {
     raceAllowedInput.value = '';
     raceAllowedInput.style.backgroundColor = '';
+    raceAllowedInput.style.color = '';
     return;
   }
   
@@ -455,16 +456,31 @@ function updateRaceAllowed() {
   
   // Update background color
   if (compatibility.toLowerCase() === 'no' || compatibility.toLowerCase().includes('no*')) {
-    raceAllowedInput.style.backgroundColor = '#ff6b6b';
+    raceAllowedInput.style.backgroundColor = '#c0392b';
+    raceAllowedInput.style.color = '#fff';
   } else if (compatibility && compatibility.toLowerCase() !== '') {
-    raceAllowedInput.style.backgroundColor = '#90ee90';
+    raceAllowedInput.style.backgroundColor = '#c8e6c9';
+    raceAllowedInput.style.color = '#2c2416';
   } else {
-    raceAllowedInput.style.backgroundColor = '#ff6b6b';
+    raceAllowedInput.style.backgroundColor = '#c0392b';
+    raceAllowedInput.style.color = '#fff';
   }
 }
 
 
-// Calculate and update stat modifiers from equipment
+function toggleEquippedOnly() {
+  const btn = document.getElementById('equip-filter-btn');
+  const filtering = btn.dataset.active !== 'true';
+  btn.dataset.active = filtering;
+  btn.textContent = filtering ? 'Show All' : 'Hide Unequipped';
+
+  const selectors = '.weapons-table tbody tr, .ranged-table tbody tr, .shields-table tbody tr, .armor-table tbody tr';
+  document.querySelectorAll(selectors).forEach(row => {
+    const cb = row.querySelector('.equip-checkbox');
+    if (cb && !cb.checked) row.style.display = filtering ? 'none' : '';
+  });
+}
+
 function updateStatModifiers() {
   const mods = {
     'Movement': 0,
