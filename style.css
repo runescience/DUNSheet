@@ -73,7 +73,7 @@ body {
 
 .vp-field .number-field {
   flex: 1;
-  padding: 3px 4px;
+  padding: 1px 1px;
   border: 1px solid #8b7355;
   border-radius: 3px;
   width: 40px;
@@ -89,7 +89,7 @@ body {
 
 .net-line {
   grid-column: span 1;
-  padding: 4px 8px;
+  padding: 1px 1px;
   border: 1px solid #d4c4a8;
   border-radius: 3px;
   background: #fafaf8;
@@ -103,7 +103,7 @@ body {
 .dropdown-1,
 .dropdown-2 {
   grid-column: span 2;
-  padding: 4px 8px;
+  padding: 1px 1px;
   border: 1px solid #8b7355;
   border-radius: 3px;
   font-size: 15px;
@@ -179,7 +179,7 @@ body {
 .stats-table th,
 .stats-table td {
   border: 1px solid #d4c4a8;
-  padding: 3px;
+  padding: 2px;
   text-align: center;
   width: 1%;
   white-space: nowrap;
@@ -201,8 +201,8 @@ body {
 }
 
 .stats-table input[type="text"] {
-  width: 45px;
-  padding: 3px 2px;
+  width: 35px;
+  padding: 1px 1px;
   border: 1px solid #8b7355;
   border-radius: 3px;
   box-sizing: border-box;
@@ -323,7 +323,7 @@ body {
 .shields-table input,
 .armor-table input {
   width: 45px;
-  padding: 2px;
+  padding: 1px;
   border: 1px solid #8b7355;
   border-radius: 3px;
   box-sizing: border-box;
@@ -338,7 +338,7 @@ body {
 .armor-table select {
   width: 100%;
   min-width: 120px;
-  padding: 2px;
+  padding: 1px;
   border: 1px solid #8b7355;
   border-radius: 3px;
   box-sizing: border-box;
@@ -400,7 +400,7 @@ body {
   .shields-table td,
   .armor-table th,
   .armor-table td {
-    padding: 2px;
+    padding: 1px;
   }
 }
 
