@@ -370,17 +370,22 @@ function fillRaceStats() {
           inputs[1].value = stat.data.min || '';
           inputs[2].value = stat.data.max || '';
           inputs[3].value = stat.data.cost || '';
+          inputs[0].value = stat.data.min || '';
         } else {
           // Simple number stats (armor, fortune)
           inputs[1].value = stat.data || '';
           inputs[2].value = stat.data || '';
           inputs[3].value = '';
+          inputs[0].value = stat.data || '';
         }
+
+        if (inputs[0]) inputs[0].oninput = calcXpSpent;
         
         statIndex++;
       }
     });
   });
+  calcXpSpent();
 }
 
 // Fill class description when class is selected
@@ -614,4 +619,25 @@ function updateStatModifiers() {
       }
     });
   });
+}
+
+function calcXpSpent() {
+  let total = 0;
+  const statsTables = document.querySelectorAll('.stats-table tbody');
+  statsTables.forEach(table => {
+    table.querySelectorAll('tr').forEach(row => {
+      const inputs = row.querySelectorAll('input');
+      // [0]=Final, [1]=Min, [3]=Cost, [5]=Spend
+      if (inputs.length >= 6) {
+        const final = parseFloat(inputs[0].value) || 0;
+        const min   = parseFloat(inputs[1].value) || 0;
+        const cost  = parseFloat(inputs[3].value) || 0;
+        const spent = (final - min) * cost;
+        inputs[5].value = spent > 0 ? spent : '';
+        total += spent > 0 ? spent : 0;
+      }
+    });
+  });
+  const totalInput = document.getElementById('total-xp-input');
+  if (totalInput) totalInput.value = total || '';
 }
