@@ -217,30 +217,11 @@ body {
   box-shadow: 0 0 5px rgba(90, 74, 58, 0.3);
 }
 
-.weapons-ranged-container {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 15px;
-  flex-wrap: wrap;
-}
-
 .weapons-container,
-.ranged-container {
-  flex: 1;
-  min-width: 300px;
-}
-
-.shields-armor-container {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 15px;
-  flex-wrap: wrap;
-}
-
+.ranged-container,
 .shields-container,
 .armor-container {
-  flex: 1;
-  min-width: 300px;
+  margin-bottom: 15px;
 }
 
 .weapons-container h3,
@@ -404,11 +385,21 @@ body {
   }
 }
 
-.save-restore-container {
-  display: flex;
-  gap: 10px;
-  margin: 20px 0;
-  justify-content: center;
+.container button {
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: bold;
+  border: 1px solid #5a4000;
+  border-radius: 4px;
+  background: #8b6914;
+  color: #fdf6e3;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.container button:hover {
+  background: #a07820;
 }
 
 .save-restore-container button {
@@ -451,6 +442,18 @@ body {
 .ranged-table th:first-child,
 .shields-table th:first-child,
 .armor-table th:first-child {
-  width: 15px;
+  width: 5px;
+  padding: 0 1px;
   text-align: center;
+}
+
+.weapons-table td:nth-child(2),
+.ranged-table td:nth-child(2),
+.shields-table td:nth-child(2),
+.armor-table td:nth-child(2),
+.weapons-table th:nth-child(2),
+.ranged-table th:nth-child(2),
+.shields-table th:nth-child(2),
+.armor-table th:nth-child(2) {
+  width: auto;
 }

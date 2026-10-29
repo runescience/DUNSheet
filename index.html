@@ -12,19 +12,20 @@
   <div class="wrapper">
   <div class="container">
     <input type="text" class="name-field" placeholder="Name">
-    <div class="empty"></div>
-    
     <div class="vp-field">
       <label for="gold-input">Gold:</label>
       <input type="number" id="gold-input" class="number-field" placeholder="0">
     </div>
-    
     <div class="vp-field">
       <label for="vp-input">VP:</label>
       <input type="number" id="vp-input" class="number-field" placeholder="0">
     </div>
-    
     <div class="net-line">Net Line</div>
+    <button onclick="saveSheet()">Save As</button>
+    <button onclick="restoreSheet()">Restore</button>
+  </div>
+
+  <div class="container">
     <select class="dropdown-1">
       <option value="">Select class</option>
       <option value="sorcerer">Sorcerer</option>
@@ -189,8 +190,7 @@
     </div>
   </div>
 
-  <div class="weapons-ranged-container">
-    <div class="weapons-container">
+  <div class="weapons-container">
       <h3>Weapons <button id="equip-filter-btn" onclick="toggleEquippedOnly()">Hide Unequipped</button></h3>
       <table class="weapons-table">
         <thead>
@@ -271,9 +271,9 @@
           </tr>
         </tbody>
       </table>
-    </div>
+  </div>
 
-    <div class="ranged-container">
+  <div class="ranged-container">
       <h3>Ranged Weapons</h3>
       <table class="ranged-table">
         <thead>
@@ -324,11 +324,9 @@
           </tr>
         </tbody>
       </table>
-    </div>
   </div>
 
-  <div class="shields-armor-container">
-    <div class="shields-container">
+  <div class="shields-container">
       <h3>Shields</h3>
       <table class="shields-table">
         <thead>
@@ -379,9 +377,9 @@
           </tr>
         </tbody>
       </table>
-    </div>
+  </div>
 
-    <div class="armor-container">
+  <div class="armor-container">
       <h3>Armor</h3>
       <table class="armor-table">
         <thead>
@@ -432,15 +430,9 @@
           </tr>
         </tbody>
       </table>
-    </div>
   </div>
 
-  <div class="save-restore-container">
-    <button onclick="saveSheet()">Save As</button>
-    <button onclick="restoreSheet()">Restore</button>
-  </div>
-
-  <script src="classes.js"></script>
+<script src="classes.js"></script>
   <script src="races.js"></script>
   <script src="classRaceLookup.js"></script>
   <script src="ranged.js"></script>
