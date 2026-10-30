@@ -46,7 +46,7 @@
   </div>
 
   <div class="tables-container">
-    <table class="stats-table">
+    <table class="stats-table" id="table1">
       <thead>
         <tr>
           <th></th>
@@ -54,15 +54,11 @@
           <th>Min</th>
           <th>Max</th>
           <th>Cost</th>
-          <th>Mod</th>
-          <th>Spend</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td>Movement</td>
-          <td><input type="text"></td>
-          <td><input type="text"></td>
           <td><input type="text"></td>
           <td><input type="text"></td>
           <td><input type="text"></td>
@@ -74,13 +70,9 @@
           <td><input type="text"></td>
           <td><input type="text"></td>
           <td><input type="text"></td>
-          <td><input type="text"></td>
-          <td><input type="text"></td>
         </tr>
         <tr>
           <td>Strength</td>
-          <td><input type="text"></td>
-          <td><input type="text"></td>
           <td><input type="text"></td>
           <td><input type="text"></td>
           <td><input type="text"></td>
@@ -92,31 +84,18 @@
           <td><input type="text"></td>
           <td><input type="text"></td>
           <td><input type="text"></td>
-          <td><input type="text"></td>
-          <td><input type="text"></td>
         </tr>
         <tr>
           <td>Armor</td>
           <td><input type="text"></td>
-          <td><input type="text"></td>
-          <td><input type="text"></td>
-          <td><input type="text"></td>
-          <td><input type="text"></td>
-          <td><input type="text"></td>
-        </tr>
-        <tr>
-          <td>Fortune</td>
-          <td><input type="text"></td>
-          <td><input type="text"></td>
-          <td><input type="text"></td>
-          <td><input type="text"></td>
-          <td><input type="text"></td>
+          <td></td>
+          <td>Fort</td>
           <td><input type="text"></td>
         </tr>
       </tbody>
     </table>
 
-    <table class="stats-table">
+    <table class="stats-table" id="table2">
       <thead>
         <tr>
           <th></th>
@@ -124,15 +103,11 @@
           <th>Min</th>
           <th>Max</th>
           <th>Cost</th>
-          <th>Mod</th>
-          <th>Spend</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td>Agility</td>
-          <td><input type="text"></td>
-          <td><input type="text"></td>
           <td><input type="text"></td>
           <td><input type="text"></td>
           <td><input type="text"></td>
@@ -144,13 +119,9 @@
           <td><input type="text"></td>
           <td><input type="text"></td>
           <td><input type="text"></td>
-          <td><input type="text"></td>
-          <td><input type="text"></td>
         </tr>
         <tr>
           <td>Mana</td>
-          <td><input type="text"></td>
-          <td><input type="text"></td>
           <td><input type="text"></td>
           <td><input type="text"></td>
           <td><input type="text"></td>
@@ -162,8 +133,6 @@
           <td><input type="text"></td>
           <td><input type="text"></td>
           <td><input type="text"></td>
-          <td><input type="text"></td>
-          <td><input type="text"></td>
         </tr>
         <tr>
           <td>Vitality</td>
@@ -171,16 +140,14 @@
           <td><input type="text"></td>
           <td><input type="text"></td>
           <td><input type="text"></td>
-          <td><input type="text"></td>
-          <td><input type="text"></td>
-        </tr>
-        <tr>
-          <td>Race allowed</td>
-          <td colspan="5"><input type="text" readonly></td>
-          <td><input type="text"></td>
         </tr>
       </tbody>
     </table>
+  </div>
+
+  <div class="container">
+    <label for="race-allowed-input" style="min-width: max-content;">Race allowed:</label>
+    <input type="text" id="race-allowed-input" readonly>
   </div>
 
   <div class="descriptions-container">

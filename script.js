@@ -225,15 +225,15 @@ function fillWeaponData(selectElement, rowIndex) {
   const row = selectElement.closest('tr');
   const inputs = row.querySelectorAll('input');
   
-  inputs[0].value = weapon.cost;
-  inputs[1].value = weapon.dmg;
-  inputs[2].value = weapon.armorEffect;
-  inputs[3].value = weapon.usersCS;
-  inputs[4].value = weapon.throwRange;
-  inputs[5].value = weapon.breakOn;
-  inputs[6].value = weapon.twoHanded;
-  inputs[7].value = weapon.notes;
-  inputs[8].value = weapon.wt;
+  inputs[1].value = weapon.cost;
+  inputs[2].value = weapon.dmg;
+  inputs[3].value = weapon.armorEffect;
+  inputs[4].value = weapon.usersCS;
+  inputs[5].value = weapon.throwRange;
+  inputs[6].value = weapon.breakOn;
+  inputs[7].value = weapon.twoHanded;
+  inputs[8].value = weapon.notes;
+  inputs[9].value = weapon.wt;
   
   updateStatModifiers();
 }
@@ -250,15 +250,15 @@ function fillRangedData(selectElement, rowIndex) {
   const row = selectElement.closest('tr');
   const inputs = row.querySelectorAll('input');
   
-  inputs[0].value = weapon.cost;
-  inputs[1].value = weapon.damage;
-  inputs[2].value = weapon.agil;
-  inputs[3].value = weapon.shoot;
-  inputs[4].value = weapon.reload;
-  inputs[5].value = weapon.range;
-  inputs[6].value = weapon.breakOn;
-  inputs[7].value = weapon.notes;
-  inputs[8].value = weapon.wt;
+  inputs[1].value = weapon.cost;
+  inputs[2].value = weapon.damage;
+  inputs[3].value = weapon.agil;
+  inputs[4].value = weapon.shoot;
+  inputs[5].value = weapon.reload;
+  inputs[6].value = weapon.range;
+  inputs[7].value = weapon.breakOn;
+  inputs[8].value = weapon.notes;
+  inputs[9].value = weapon.wt;
   
   updateStatModifiers();
 }
@@ -275,15 +275,15 @@ function fillShieldData(selectElement, rowIndex) {
   const row = selectElement.closest('tr');
   const inputs = row.querySelectorAll('input');
   
-  inputs[0].value = shield.cost;
-  inputs[1].value = shield.defendOn;
-  inputs[2].value = shield.agil;
-  inputs[3].value = shield.shoot;
-  inputs[4].value = shield.perc;
-  inputs[5].value = shield.breakOn;
-  inputs[6].value = shield.runningFig;
-  inputs[7].value = shield.notes;
-  inputs[8].value = shield.wt;
+  inputs[1].value = shield.cost;
+  inputs[2].value = shield.defendOn;
+  inputs[3].value = shield.agil;
+  inputs[4].value = shield.shoot;
+  inputs[5].value = shield.perc;
+  inputs[6].value = shield.breakOn;
+  inputs[7].value = shield.runningFig;
+  inputs[8].value = shield.notes;
+  inputs[9].value = shield.wt;
   
   updateStatModifiers();
 }
@@ -300,15 +300,15 @@ function fillArmorData(selectElement, rowIndex) {
   const row = selectElement.closest('tr');
   const inputs = row.querySelectorAll('input');
   
-  inputs[0].value = armor.cost;
-  inputs[1].value = armor.armor;
-  inputs[2].value = armor.move;
-  inputs[3].value = armor.agil;
-  inputs[4].value = armor.shoot;
-  inputs[5].value = armor.percMod;
-  inputs[6].value = armor.dex;
-  inputs[7].value = armor.notes;
-  inputs[8].value = armor.wt;
+  inputs[1].value = armor.cost;
+  inputs[2].value = armor.armor;
+  inputs[3].value = armor.move;
+  inputs[4].value = armor.agil;
+  inputs[5].value = armor.shoot;
+  inputs[6].value = armor.percMod;
+  inputs[7].value = armor.dex;
+  inputs[8].value = armor.notes;
+  inputs[9].value = armor.wt;
   
   updateStatModifiers();
 }
@@ -366,17 +366,18 @@ function fillRaceStats() {
         
         // Inputs: [0]=Final, [1]=Min, [2]=Max, [3]=Cost, [4]=Mod, [5]=Spend
         if (typeof stat.data === 'object' && stat.data !== null) {
-          // Stats with min/max/cost structure
-          inputs[1].value = stat.data.min || '';
-          inputs[2].value = stat.data.max || '';
-          inputs[3].value = stat.data.cost || '';
-          inputs[0].value = stat.data.min || '';
+          if (inputs[1]) inputs[1].value = stat.data.min ?? '';
+          if (inputs[2]) inputs[2].value = stat.data.max ?? '';
+          if (inputs[3]) inputs[3].value = stat.data.cost ?? '';
+          inputs[0].value = stat.data.min ?? '';
         } else {
-          // Simple number stats (armor, fortune)
-          inputs[1].value = stat.data || '';
-          inputs[2].value = stat.data || '';
-          inputs[3].value = '';
-          inputs[0].value = stat.data || '';
+          inputs[0].value = stat.data ?? '';
+          // if next stat is also simple (Fortune on same row as Armor), fill it too
+          const nextStat = statsMap[statIndex + 1];
+          if (nextStat && typeof nextStat.data !== 'object' && inputs[1]) {
+            inputs[1].value = nextStat.data ?? '';
+            statIndex++;
+          }
         }
 
         if (inputs[0]) inputs[0].oninput = calcXpSpent;
@@ -423,20 +424,7 @@ function updateRaceAllowed() {
   const classValue = classDropdown.value;
   const raceValue = raceDropdown.value;
   
-  // Find the Race allowed input field
-  const statsTables = document.querySelectorAll('.stats-table tbody');
-  let raceAllowedInput = null;
-  
-  statsTables.forEach(table => {
-    const rows = table.querySelectorAll('tr');
-    rows.forEach(row => {
-      const firstCell = row.querySelector('td');
-      if (firstCell && firstCell.textContent.trim() === 'Race allowed') {
-        raceAllowedInput = row.querySelector('input[readonly]');
-      }
-    });
-  });
-  
+  const raceAllowedInput = document.getElementById('race-allowed-input');
   if (!raceAllowedInput) return;
   
   // Clear styling and value if either dropdown is empty
@@ -608,13 +596,6 @@ function updateStatModifiers() {
     rows.forEach(row => {
       const firstCell = row.querySelector('td');
       if (firstCell && statIndex < statsOrder.length) {
-        const statName = statsOrder[statIndex];
-        const inputs = row.querySelectorAll('input');
-        // Mod column is index 4
-        if (inputs[4]) {
-          const modValue = mods[statName];
-          inputs[4].value = modValue !== 0 ? (modValue > 0 ? '+' + modValue : modValue) : '';
-        }
         statIndex++;
       }
     });
@@ -627,13 +608,12 @@ function calcXpSpent() {
   statsTables.forEach(table => {
     table.querySelectorAll('tr').forEach(row => {
       const inputs = row.querySelectorAll('input');
-      // [0]=Final, [1]=Min, [3]=Cost, [5]=Spend
-      if (inputs.length >= 6) {
+      // [0]=Final, [1]=Min, [2]=Max, [3]=Cost
+      if (inputs.length >= 4) {
         const final = parseFloat(inputs[0].value) || 0;
         const min   = parseFloat(inputs[1].value) || 0;
         const cost  = parseFloat(inputs[3].value) || 0;
         const spent = (final - min) * cost;
-        inputs[5].value = spent > 0 ? spent : '';
         total += spent > 0 ? spent : 0;
       }
     });

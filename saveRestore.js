@@ -70,7 +70,8 @@ function saveSheet() {
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
-  a.download = 'character-sheet.json';
+  const charName = document.querySelector('.name-field')?.value.trim() || 'character';
+  a.download = charName + '.json';
   a.click();
   URL.revokeObjectURL(url);
 }
