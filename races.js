@@ -54,7 +54,7 @@ const races = [
     armor: 3,
     fortune: 4,
     agility: { min: 4, max: 5, cost: 2 },
-    intelligence: { min: 3, max: 5, cost: 2 },
+    intelligence: { min: 3, max: 5, cost: 1 },
     mana: { min: 0, max: 0, cost: 0 },
     courage: { min: 3, max: 5, cost: 1 },
     vitality: { min: 4, max: 6, cost: 2 },
@@ -70,7 +70,7 @@ const races = [
     fortune: 3,
     agility: { min: 3, max: 5, cost: 2 },
     intelligence: { min: 4, max: 5, cost: 2 },
-    mana: { min: 0, max: 2, cost: 0 },
+    mana: { min: 0, max: 2, cost: 1 },
     courage: { min: 3, max: 5, cost: 1 },
     vitality: { min: 4, max: 6, cost: 2 },
     notes: "they look like humans however the blood of the Gods runs through their veins. They begin with the skill invulnerable. They may learn the skill fly 8. They can never reach Armor value of 6"
@@ -193,7 +193,7 @@ const races = [
     mana: { min: 0, max: 0, cost: 0 },
     courage: { min: 3, max: 5, cost: 1 },
     vitality: { min: 3, max: 4, cost: 3 },
-    notes: "Small though Lucky. They begin with the skills small lost in the dark and stealth"
+    notes: "Small though Lucky. They begin with the skills [small], [lost in the dark] and [stealth]"
   },
   {
     name: "Humans",
@@ -268,7 +268,7 @@ const races = [
     mana: { min: 0, max: 0, cost: 0 },
     courage: { min: 3, max: 5, cost: 1 },
     vitality: { min: 4, max: 7, cost: 1 },
-    notes: "Begins with the skills clumsy hands and brutal"
+    notes: "Begins with the skills [clumsy hands] and [brutal]"
   },
   {
     name: "Ratfolk",
@@ -298,7 +298,7 @@ const races = [
     mana: { min: 0, max: 0, cost: 0 },
     courage: { min: 4, max: 5, cost: 1 },
     vitality: { min: 5, max: 7, cost: 2 },
-    notes: "Slow dexterous Brave and very tough. They begin with the skills tough cruel and skilled hands"
+    notes: "Slow dexterous Brave and very tough. They begin with the skills [tough], [cruel] and [skilled hands]"
   },
   {
     name: "Reptilians",
@@ -313,7 +313,7 @@ const races = [
     mana: { min: 0, max: 0, cost: 0 },
     courage: { min: 3, max: 5, cost: 1 },
     vitality: { min: 4, max: 7, cost: 2 },
-    notes: "Tough and Hardy but slow. Begins with the skill cold blood and Pathfinder (flooded areas , swamp) they can use the weapon claws"
+    notes: "Tough and Hardy but slow. Begins with the skill [Cold Blood] and [Pathfinder] (flooded areas , swamp) they can use the weapon [Claws]"
   },
   {
     name: "Shardminds",
@@ -343,14 +343,14 @@ const races = [
     mana: { min: 0, max: 0, cost: 0 },
     courage: { min: 4, max: 5, cost: 1 },
     vitality: { min: 4, max: 7, cost: 1 },
-    notes: "Begins with the skills vulnerable to fire survive. Can't wear any armor. Can use the weapon claws"
+    notes: "Begins with the skills [Vulnerable] (fire) and [Survive]. Can't wear any armor. Can use the weapon [Claws]"
   },
   {
     name: "Trolls",
     mov: { min: 6, max: 7, cost: 3 },
     combat: { min: 2, max: 4, cost: 2 },
     strength: { min: 7, max: 9, cost: 2 },
-    shooting: { min: 3, max: 2, cost: 3 },
+    shooting: { min: 2, max: 3, cost: 2 },
     armor: 4,
     fortune: 2,
     agility: { min: 1, max: 2, cost: 2 },
@@ -358,7 +358,7 @@ const races = [
     mana: { min: 0, max: 0, cost: 0 },
     courage: { min: 4, max: 5, cost: 1 },
     vitality: { min: 8, max: 14, cost: 1 },
-    notes: "Begins with the skills large fearsome sweep regeneration stupid and vulnerable to fire. They may learn corrosive vomit. Can't wear heavy armor."
+    notes: "Begins with the skills [Large], [Fearsome], [Sweep], [Regeneration], [Stupid], and [Vulnerable] (fire). They may learn [Corrosive Vomit]. Can't wear heavy armor."
   },
   {
     name: "Vampires",
@@ -374,5 +374,165 @@ const races = [
     courage: { min: 4, max: 5, cost: 1 },
     vitality: { min: 4, max: 6, cost: 2 },
     notes: "Begins with 2 skills Leach Vitality only while using fangs sharp senses and regeneration. May learn skill flying and fearsome. They can never reach the armor value of 6. They lose their natural skills under daylight. Can use the weapon fangs"
+  },
+  {
+    name: "Fairies",
+    mov: { min: 4, max: 5, cost: 2 },
+    combat: { min: 3, max: 4, cost: 2 },
+    strength: { min: 2, max: 3, cost: 3 },
+    shooting: { min: 3, max: 5, cost: 2 },
+    armor: 3,
+    fortune: 7,
+    agility: { min: 4, max: 5, cost: 1 },
+    intelligence: { min: 5, max: 5, cost: 2 },
+    mana: { min: 0, max: 0, cost: 0 },
+    courage: { min: 2, max: 5, cost: 1 },
+    vitality: { min: 3, max: 6, cost: 2 },
+    notes: "Begins with skills [Flying] (8. If they are spell casters, they get +1 dispel and can only learn spells from the lores of light, air, water, or channgeling. When creating  the character, you can choose to have the skill [Small]. In that case you get +2 extra [fortune], and your fairy will be able to fly in inner sections."
+  },
+  {
+    name: "Aranhaiks",
+    mov:      { min: 4, max: 6, cost: 1 },
+    combat:   { min: 3, max: 5, cost: 2 },
+    strength: { min: 3, max: 5, cost: 2 },
+    shooting: { min: 3, max: 5, cost: 2 },
+    armor: 3,
+    fortune: 6,
+    agility:      { min: 3, max: 4, cost: 1 },
+    intelligence: { min: 3, max: 4, cost: 2 },
+    mana:         { min: 0, max: 0, cost: 0 },
+    courage:      { min: 3, max: 5, cost: 1 },
+    vitality:     { min: 4, max: 7, cost: 1 },
+    notes:    "Begins with skills [Pathfinder](spiderwebs, forrest, rocky), [Climber], [Poisonous] (only with fangs).  May use the natural weapon [Fangs]"
+  },
+  {
+    name: "Devastators",
+    mov:      { min: 5, max: 6, cost: 1 },
+    combat:   { min: 3, max: 5, cost: 2 },
+    strength: { min: 3, max: 5, cost: 2 },
+    shooting: { min: 3, max: 4, cost: 2 },
+    armor: 3,
+    fortune: 4,
+    agility:      { min: 3, max: 4, cost: 2 },
+    intelligence: { min: 3, max: 5, cost: 2 },
+    mana:         { min: 0, max: 0, cost: 0 },
+    courage:      { min: 3, max: 5, cost: 1 },
+    vitality:     { min: 4, max: 7, cost: 1 },
+    notes:    "At the moment of their creation, they can choose from the following 4 skills: Regeneration, Fearsome, Magic Resistance, Berserker (while using this skill ,they recover 1 Vitality each time the knock out an enemy in [Melee]"
+  },
+  {
+    name: "Mumaks",
+    mov:      { min: 5, max: 6, cost: 2 },
+    combat:   { min: 3, max: 4, cost: 3 },
+    strength: { min: 6, max: 8, cost: 2 },
+    shooting: { min: 31, max: 3, cost: 1 },
+    armor: 4,
+    fortune: 2,
+    agility:      { min: 1, max: 3, cost: 2 },
+    intelligence: { min: 3, max: 4, cost: 2 },
+    mana:         { min: 0, max: 0, cost: 0 },
+    courage:      { min: 3, max: 5, cost: 1 },
+    vitality:     { min: 8, max: 12, cost: 1 },
+    notes:    "Begins with skills [Large], [Sweep], [Onslaught], [Fearsome].  May use the natural weapon [Fangs]. Can never reach 6 [Armor]."
+  },
+  {
+    name: "Draconians",
+    mov:      { min: 5, max: 6, cost: 3 },
+    combat:   { min: 3, max: 5, cost: 2 },
+    strength: { min: 3, max: 5, cost: 2 },
+    shooting: { min: 2, max: 4, cost: 2 },
+    armor: 4,
+    fortune: 4,
+    agility:      { min: 2, max: 4, cost: 2 },
+    intelligence: { min: 3, max: 5, cost: 2 },
+    mana:         { min: 0, max: 0, cost: 0 },
+    courage:      { min: 3, max: 5, cost: 1 },
+    vitality:     { min: 4, max: 6, cost: 2 },
+    notes:    "Begins with skills [Breath](3). Immune to Disease Condition.  May use the weapon [Claws]"
+  },
+  {
+    name: "Half-Elves",
+    mov:      { min: 5, max: 6, cost: 2 },
+    combat:   { min: 3, max: 5, cost: 2 },
+    strength: { min: 3, max: 4, cost: 2 },
+    shooting: { min: 3, max: 5, cost: 2 },
+    armor: 3,
+    fortune: 5,
+    agility:      { min: 3, max: 5, cost: 1 },
+    intelligence: { min: 4, max: 5, cost: 2 },
+    mana:         { min: 0, max: 0, cost: 0 },
+    courage:      { min: 3, max: 5, cost: 1 },
+    vitality:     { min: 4, max: 5, cost: 2 },
+    notes:    "Begins with one skill at the players choise depending on class chosen."
+  },
+  {
+    name: "Kobolds",
+    mov:      { min: 4, max: 5, cost: 1 },
+    combat:   { min: 3, max: 4, cost: 2 },
+    strength: { min: 2, max: 3, cost: 2 },
+    shooting: { min: 3, max: 4, cost: 1 },
+    armor: 4,
+    fortune: 6,
+    agility:      { min: 4, max: 5, cost: 2 },
+    intelligence: { min: 3, max: 4, cost: 2 },
+    mana:         { min: 0, max: 0, cost: 0 },
+    courage:      { min: 3, max: 4, cost: 2 },
+    vitality:     { min: 3, max: 4, cost: 2 },
+    notes:    "Begins with skills [Small], [Stealth], and [Slipper]."
+  },
+  {
+    name: "Zombies.",
+    mov:      { min: 3, max: 5, cost: 1 },
+    combat:   { min: 3, max: 4, cost: 2 },
+    strength: { min: 3, max: 5, cost: 2 },
+    shooting: { min: 1, max: 2, cost: 2 },
+    armor: 4,
+    fortune: 6,
+    agility:      { min: 1, max: 3, cost: 1 },
+    intelligence: { min: 2, max: 3, cost: 2 },
+    mana:         { min: 0, max: 0, cost: 0 },
+    courage:      { min: 4, max: 4, cost: 1 },
+    vitality:     { min: 5, max: 5, cost: 1 },
+    notes:     "Begins with skills [Undead] and [Stupid]. only for exploration turns. If they perform the action 'search for corpses', they recover 1 vitality for eveyr 2 coins found "
+  },
+  {
+    name: "Iron Souls",
+    mov:      { min: 4, max: 5, cost: 2 },
+    combat:   { min: 3, max: 5, cost: 2 },
+    strength: { min: 3, max: 5, cost: 1 },
+    shooting: { min: 2, max: 5, cost: 2 },
+    armor: 5,
+    fortune: 3,
+    agility:      { min: 2, max: 4, cost: 2 },
+    intelligence: { min: 2, max: 4, cost: 2 },
+    mana:         { min: 0, max: 0, cost: 0 },
+    courage:      { min: 3, max: 5, cost: 1 },
+    vitality:     { min: 5, max: 8, cost: 1 },
+    notes:    "Begins with one Combat SKill at the players choice depending on class chosen. Cant wear any armor. They ignore the skill Fearsome from enemies their size or smaller."
+  },
+  {
+    name: "The Soulless",
+    mov:      { min: 4, max: 5, cost: 2 },
+    combat:   { min: 3, max: 5, cost: 2 },
+    strength: { min: 3, max: 5, cost: 2 },
+    shooting: { min: 2, max: 3, cost: 2 },
+    armor: 3,
+    fortune: 5,
+    agility:      { min: 1, max: 3, cost: 2 },
+    intelligence: { min: 2, max: 4, cost: 2 },
+    mana:         { min: 0, max: 0, cost: 0 },
+    courage:      { min: 3, max: 5, cost: 1 },
+    vitality:     { min: 4, max: 6, cost: 1 },
+    notes:    "Begins with skills Fearsome, Undead. The may learn regeneration. They cannot recover Vitality by using common objects. When they use a Mana Potion, they also recover all their Vitality "
   }
+  
+  
+  
+  
+  
+  
+  
+  
+
+
 ];
